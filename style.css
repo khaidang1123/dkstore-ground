@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif !important;
+}
+
+.homepage {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+}
+
+.homepage img {
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+
+.homepage h4 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.homepage button {
+    display: block;
+    margin: auto;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 700px;
+    color: #FFF;
+    background-color: #2F5597;
+    border: 2px solid;
+}
+
+.homepage .models {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.homepage .models button {
+    width: 100%;
+    padding: 10px 40px;
+    font-size: 18px;
+    margin-top: 70px;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.homepage .models button:hover {
+    transform: translateY(10px);
+    transition: all .3s;
+}
+
+.homepage .models div button:last-child {
+    background-color: #7F7F7F;
+    padding: 8px 40px;
+    font-size: 12px;
+    cursor: text;
+}
+
+.homepage .models div button:last-child:hover {
+    transform: unset;
+}
+
+@media (max-width: 767px) {
+    .homepage {
+        padding: 0 10px;
+    }
+    .homepage button {
+        width: 100%;
+    }
+
+    .homepage .models {
+        gap: 15px;
+    }
+
+    .homepage .models button {
+        padding: 10px;
+        font-size: 17px;
+        margin-top: 50px;
+    }
+
+    .homepage .models div button:last-child {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DK Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="homepage">
+        <img src="./images/dk-store-logo.png" alt="" width="300" />
+        <h4></h4>
+        <button>CÁC MÔ HÌNH DKSTORE</button>
+
+        <div class="models">
+            <div>
+                <button onclick="optionPage(1)">DK STORE 01</button>
+                <button>Mặt tiền: L>=10(m)</button>
+            </div>
+            <div>
+                <button onclick="optionPage(2)">DK STORE 02</button>
+                <button>Mặt tiền: 7<=L<=10(m)</button>
+            </div>
+            <div>
+                <button onclick="optionPage(3)">DK STORE 03</button>
+                <button>Mặt tiền: 4<=L<=7(m)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function optionPage(page) {
+            window.location.href = "/option-" + page + ".html"
+        }
+    </script>
+</body>
+
+</html>

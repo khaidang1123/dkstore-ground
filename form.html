@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DK Shop</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="form-page">
+        <img src="./images/dk-store-logo.png" alt="" width="300" />
+        <h4></h4>
+        <button class="form-title">Nhập thông tin cửa hàng tại đây</button>
+
+        <form action="">
+            <div>
+                <label for="storename">Tên cửa hàng</label>
+                <input type="text" name="storename" id="storename" placeholder="Vd: Dk Store">
+            </div>
+            
+            <div>
+                <label for="address">Địa chỉ</label>
+                <input type="text" name="address" id="address">
+            </div>
+
+            <div class="">
+                <label for="phonenumber1">Số điện thoại (tối đa 2 số)</label>
+                <div class="flex-between">
+                    <input type="text" name="phonenumber" id="phonenumber1">
+                    <p>-</p>
+                    <input type="text" name="phonenumber" id="phonenumber2">
+                </div>
+            </div>
+
+        </form>
+        <button class="send-data" onclick="sendData()">Gửi dữ liệu</button>
+    </div>
+
+    <script>
+        function optionPage(page) {
+            window.location.href = "/option-" + page + ".html"
+        }
+
+        function sendData() {
+            let storename = document.querySelector("#storename").value
+            let address = document.querySelector("#address").value
+            let phonenumber1 = document.querySelector("#phonenumber1").value
+            let phonenumber2 = document.querySelector("#phonenumber2").value
+
+            let data = { storename, address, phonenumber1, phonenumber2 }
+
+            window.localStorage.setItem("storeinfo", JSON.stringify(data))
+            window.location.href = "/demo.html"
+        }
+    </script>
+</body>
+
+</html>

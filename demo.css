@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma, sans-serif !important;
+}
+
+.demo-page {
+    position: relative;
+}
+
+.main-image {
+    position: relative;
+    width: fit-content;
+}
+
+.render-image {
+    cursor: pointer;
+    transition: opacity 0.1s ease;
+}
+
+.render-image:hover {
+    opacity: .7;
+    background-color: #000;
+}
+
+.left-image {
+    width: 48%;
+}
+
+.right-image {
+    width: 48%;
+}
+
+.main-img {
+    width: 80%;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.sub-image {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.storename {
+    position: absolute;
+    color: #eeeeee;
+    width: 1000px;
+    letter-spacing: 0.05em;
+}
+
+.address {
+    position: absolute;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+
+.phonenumber {
+    position: absolute;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+
+.download-all {
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #2F5597;
+    color: #fff;
+    user-select: none;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #fff;
+    transition: all .4s;
+}
+
+.download-all:hover {
+    transform: scale(1.1);
+    transition: all .4s;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: .7;
+    visibility: visible;
+    transform: all .3s;
+}
+
+.preview-image {
+    opacity: 0;
+    visibility: hidden;
+    width: 70%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    z-index: 9999;
+    height: fit-content;
+}
+
+.preview-image.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.preview-image .main-preview {
+    width: fit-content;
+}
+
+.preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2F5597;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    gap: 10px;
+}

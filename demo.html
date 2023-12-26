@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+    <div class="preload">
+        <img src="./images/setting-animation.gif" alt="" width="50">
+        Đang lấy dữ liệu ảnh...
+    </div>
+    <div class="demo-page" id="demo-page">
+        <div class="main-image">
+            <img src="" width="1000" class="image-pending">
+            <p class="storename"></p>
+            <p class="address"></p>
+            <p class="phonenumber"></p>
+        </div>
+        <img src="" class="render-image main-img">
+        <div class="sub-image">
+            <img src="" class="render-image left-image">
+            <img src="" class="render-image right-image">
+        </div>
+
+        <button onclick="downloadImage()" class="download-all">Download toàn bộ ảnh</button>
+
+        <div class="overlay"></div>
+        <div class="preview-image">
+            <div class="main-preview">
+                <img src="" class="preview-image">
+            </div>
+        </div>
+    </div>
+
+    <img src="" alt="">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    </head>
+    <script>
+        setTimeout(function () {
+            $(".preload").css({
+                opacity: "0",
+                visibility: "hidden"
+            })
+        }, 2500)
+
+        let dkoption = localStorage.getItem("dkoption")
+        dkoption = JSON.parse(dkoption)
+
+        let data = localStorage.getItem("storeinfo")
+        data = JSON.parse(data)
+
+        let storename = data.storename
+        let address = data.address
+        let phonenumber1 = data.phonenumber1
+        let phonenumber2 = data.phonenumber2
+
+        let phonenumber = phonenumber1
+        if (phonenumber2) {
+            phonenumber = phonenumber + " - " + phonenumber2
+        }
+
+        if (!storename || !address || !phonenumber) {
+            alert("Vui lòng điền lại thông tin cửa hàng!");
+            window.location.href = "/form.html"
+        }
+
+        let listImage = [];
+        let source = ""
+        if (dkoption == '1a') {
+            // 3 ảnh
+            source = "1a"
+            dataCss = [
+                [
+                    {
+                        top: '337px',
+                        fontSize: '18px',
+                        textAlign: 'center',
+                        fontWeight: '700',
+                        'text-shadow': '2px 2px 2px #222',
+                    },
+                    {
+                        top: phonenumber2 ? '367px' : '364px',
+                        left: '315px',
+                        fontSize: phonenumber2 ? '5px' : '9px',
+                    },
+                    {
+                        top: phonenumber2 ? '367px' : '364px',
+                        left: '616px',
+                        fontSize: phonenumber2 ? '5px' : '9px'
+                    },
+                ],
+                [
+                    {
+                        top: '396px',
+                        left: '510px',
+                        transform: 'rotate(5deg)',
+                        fontSize: '16px',
+                        textAlign: 'left',
+                        fontWeight: '700',
+                        'text-shadow': '-1.5px 1px 2px #000',
+                    },
+                    {
+                        top: '371.5px',
+                        left: '412px',
+                        fontSize: '6px',
+                        transform: 'rotate(4deg)',
+                    },
+                    {
+                        top: phonenumber2 ? '391px' : '388px',
+                        fontSize: phonenumber2 ? '3.5px' : '6px',
+                        left: '644px',
+                        transform: 'rotate(4deg)',
+                    },
+
+                ],
+                [
+                    {
+                        top: '325px',
+                        left: '365px',
+                        transform: 'rotate(-3deg)',
+                        textAlign: 'left',
+                        fontSize: '18px',
+                        fontWeight: '700',
+                        'text-shadow': '2px 2px 2px #000',
+                    },
+                    {
+                        top: '382px',
+                        left: '274px',
+                        fontSize: phonenumber2 ? '6px' : '7px',
+                        transform: 'rotate(-3deg)',
+                    },
+                    {
+                        top: '368px',
+                        fontSize: phonenumber2 ? '6px' : '7px',
+                        left: '520px',
+                        transform: 'rotate(-3deg)',
+                    },
+
+                ],
+
+            ]
+        } else if (dkoption == '1b') {
+            source = "1b"
+            dataCss = [
+                [
+                    {
+                        top: '305px',
+                        fontSize: '18px',
+                        textAlign: 'center',
+                        fontWeight: '700',
+                        'text-shadow': '2px 2px 2px #222',
+                    },
+                    {
+                        top: phonenumber2 ? '340px' : '343px',
+                        left: '290px',
+                        fontSize: phonenumber2 ? '5px' : '9px',
+                    },
+                    {
+                        top: phonenumber2 ? '340px' : '342px',
+                        left: '635px',
+                        fontSize: phonenumber2 ? '5px' : '9px'
+                    },
+                ],
+                [
+                    {
+                        top: '396px',
+                        left: '510px',
+                        transform: 'rotate(5deg)',
+                        fontSize: '16px',
+                        textAlign: 'left',
+                        fontWeight: '700',
+                        'text-shadow': '-1.5px 1px 2px #000',
+                    },
+                    {
+                        top: '371.5px',
+                        left: '412px',
+                        fontSize: '6px',
+                        transform: 'rotate(4deg)',
+                    },
+                    {
+                        top: phonenumber2 ? '391px' : '388px',
+                        fontSize: phonenumber2 ? '3.5px' : '6px',
+                        left: '644px',
+                        transform: 'rotate(4deg)',
+                    },
+
+                ],
+                [
+                    {
+                        top: '325px',
+                        left: '365px',
+                        transform: 'rotate(-3deg)',
+                        textAlign: 'left',
+                        fontSize: '18px',
+                        fontWeight: '700',
+                        'text-shadow': '2px 2px 2px #000',
+                    },
+                    {
+                        top: '382px',
+                        left: '274px',
+                        fontSize: phonenumber2 ? '6px' : '7px',
+                        transform: 'rotate(-3deg)',
+                    },
+                    {
+                        top: '368px',
+                        fontSize: phonenumber2 ? '6px' : '7px',
+                        left: '520px',
+                        transform: 'rotate(-3deg)',
+                    },
+
+                ],
+
+            ]
+        } else if (dkoption == '1c') {
+
+        } else if (dkoption == '1d') {
+
+        } else if (dkoption == '2a') {
+
+        } else if (dkoption == '2b') {
+
+        } else if (dkoption == '2c') {
+
+        } else if (dkoption == '2d') {
+
+        } else if (dkoption == '3a') {
+
+        } else {
+            alert("Vui lòng chọn lại mô hình cửa hàng");
+            window.location.href = "/index.html"
+        }
+        $(".storename").html(storename)
+        $(".address").html(address)
+        $(".phonenumber").html(phonenumber)
+
+        // for (let i = 1; i < 4; i++) {
+        //     image_source = "./images/" + source + "/image" + i + ".png"
+        //     console.log(image_source)
+        //     $(".image-pending").attr("src", "./images/1a/image1.png")
+
+        //     // Set vị trí text cho ảnh
+        //     console.log(dataCss[i - 1][0])
+        //     $("#storename").css(dataCss[0][0]);
+        //     $("#address").css(dataCss[0][1]);
+        //     $("#phonenumber").css(dataCss[0][2]);
+        // }
+
+        // for (let i = 1; i < 4; i++) {
+        //     image_source = "./images/" + source + "/image" + i + ".png"
+        //     console.log(image_source)
+        //     $(".image-pending").attr("src", "./images/1a/image2.png")
+
+        //     // Set vị trí text cho ảnh
+        //     $("#storename").css(dataCss[1][0]);
+        //     $("#address").css(dataCss[1][1]);
+        //     $("#phonenumber").css(dataCss[1][2]);
+        // }
+
+        let dataIndex = 0
+        for (let i = 1; i < 4; i++) {
+            image_source = "./images/" + source + "/image" + i + ".png"
+            console.log(image_source)
+            $(".image-pending").attr("src", image_source)
+
+            // Set vị trí text cho ảnh
+            $(".storename").css(dataCss[dataIndex][0]);
+            $(".address").css(dataCss[dataIndex][1]);
+            $(".phonenumber").css(dataCss[dataIndex][2]);
+
+            dataIndex++
+            captureAndDownloadImage(i)
+        }
+        $(".main-image").hide()
+
+        var zip = new JSZip();
+
+        function captureAndDownloadImage(index) {
+            var elementToCapture = document.querySelector(".main-image");
+
+            html2canvas(elementToCapture, { type: 'image/jpeg', scale: 5 }).then(function (canvas) {
+                var dataURL = canvas.toDataURL('image/jpeg');
+
+                if (index == 1) {
+                    $(".main-img").attr("src", dataURL);
+                } else if (index == 2) {
+                    $(".left-image").attr("src", dataURL);
+                } else if (index == 3) {
+                    $(".right-image").attr("src", dataURL);
+                }
+
+                zip.folder("captured_images").file("image" + index + ".jpg", dataURL.split(',')[1], { base64: true });
+            });
+        }
+
+        function downloadImage() {
+            // Generate and download the zip file
+            zip.generateAsync({ type: "blob" }).then(function (content) {
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(content);
+                a.download = 'captured_images.zip';
+                a.click();
+            });
+        }
+
+        $(".render-image").click(function () {
+            let url = $(this).attr("src")
+            $(".overlay").addClass("active")
+            $(".preview-image").addClass("active")
+            $(".preview-image img").first().attr("src", url)
+        })
+
+        $(document).on("click", ".overlay", function () {
+            $(".overlay").removeClass("active")
+            $(".preview-image").removeClass("active")
+            $(".preview-image img").attr("src", "")
+        })
+    </script>
+</body>
+
+</html>

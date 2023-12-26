@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DK Shop</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <div class="option-page">
+        <img src="./images/dk-store-logo.png" alt="" width="300" />
+        <button class="option-title">PHÂN LOẠI DK-STORE 01 (>= 10M)</button>
+
+        <div class="options">
+            <div>
+                <div>
+                    <button>DK STORE 1 - A <br><p>(DKS-1-A)</p></button>
+                    <img src="./images/dk-store-01a.png" alt="">
+                    <div>
+                        <h4>Giải thích</h4>
+                        <p>Hiện trạng: Nhà 1 tầng;mái tôn hoặc BT</p>
+                        <p>Biển mặt tiền: Không giới hạn</p>
+                        <p>chiều cao,Có pano</p>
+                    </div>
+                </div>
+                <button onclick="detail('1a')">Chi tiết</button>
+            </div>
+            <div>
+                <div>
+                    <button>DK STORE 1 - B <br><p>(DKS-1-B)</p></button>
+                    <img src="./images/dk-store-01a.png" alt="">
+                    <div>
+                        <h4>Giải thích</h4>
+                        <p>Hiện trạng: Nhà 1 tầng;mái tôn hoặc BT</p>
+                        <p>Biển mặt tiền: Không giới hạn</p>
+                        <p>chiều cao,Có pano</p>
+                    </div>
+                </div>
+                <button onclick="detail('1b')">Chi tiết</button>
+            </div>
+            <div>
+                <div>
+                    <button>DK STORE 1 - C <br><p>(DKS-1-C)</p></button>
+                    <img src="./images/dk-store-01a.png" alt="">
+                    <div>
+                        <h4>Giải thích</h4>
+                        <p>Hiện trạng: Nhà 1 tầng;mái tôn hoặc BT</p>
+                        <p>Biển mặt tiền: Không giới hạn</p>
+                        <p>chiều cao,Có pano</p>
+                    </div>
+                </div>
+                <button onclick="detail('1c')">Chi tiết</button>
+            </div>
+            <div>
+                <div>
+                    <button>DK STORE 1 - D <br><p>(DKS-1-D)</p></button>
+                    <img src="./images/dk-store-01a.png" alt="">
+                    <div>
+                        <h4>Giải thích</h4>
+                        <p>Hiện trạng: Nhà 1 tầng;mái tôn hoặc BT</p>
+                        <p>Biển mặt tiền: Không giới hạn</p>
+                        <p>chiều cao,Có pano</p>
+                    </div>
+                </div>
+                <button onclick="detail('1d')">Chi tiết</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function detail(option) {
+            window.localStorage.setItem("dkoption", JSON.stringify(option))
+            window.location.href = "form.html"
+        }
+    </script>
+</body>
+
+</html>

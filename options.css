@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif !important;
+}
+
+.option-page {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    padding: 0 10px;
+}
+
+.option-page img {
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+
+.option-page .option-title {
+    display: block;
+    margin: auto;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px;
+    width: 700px;
+    color: #FFF;
+    background-color: #2F5597;
+    border: 2px solid;
+}
+
+.option-page .options {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.option-page .options > div img {
+    max-width: 250px;
+    width: 100%;
+}
+
+.option-page .options > div > div {
+    border: 3px solid #4472C4;
+    border-radius: 30px;
+    padding: 20px 10px;
+}
+
+.option-page .options > div > div button {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #2F5597;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.option-page .options > div button:last-child {
+    background-color: #2F5597;
+    color: #fff;
+    border: none;
+    padding: 4px 50px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+.option-page .options > div > div h4 {
+    text-align: center;
+    margin: 3px 0 8px;
+}
+
+.option-page .options > div > div p {
+    font-weight: 600;
+}
+
+.option-page .options div button:last-child:hover {
+    transform: unset;
+}
+
+@media (max-width: 992px) {
+    .option-page .options {
+        flex-wrap: wrap;
+    }
+
+    .option-page .options > div {
+        width: 45%;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .option-page .option-title {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .option-page .options > div {
+        width: 96%;
+    }
+}

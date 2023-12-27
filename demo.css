@@ -14,7 +14,10 @@
 }
 
 .render-image {
+    margin: 5px;
     cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #666;
     transition: opacity 0.1s ease;
 }
 
@@ -129,6 +132,10 @@
 
 .preview-image .main-preview {
     width: fit-content;
+}
+
+.preview-image .main-preview img {
+    width: 100%;
 }
 
 .preload {

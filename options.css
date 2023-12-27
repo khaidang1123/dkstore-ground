@@ -40,9 +40,25 @@
     padding-bottom: 50px;
 }
 
+.option-page .options > div > div {
+    min-height: 507px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .option-page .options > div img {
     max-width: 250px;
     width: 100%;
+}
+
+.option-page .options > div {
+    flex: 1;
+}
+
+.option-page .options > div.d-inl {
+    flex: unset;
+    max-width: 280px;
 }
 
 .option-page .options > div > div {
@@ -52,7 +68,6 @@
 }
 
 .option-page .options > div > div button {
-    margin: auto;
     text-align: center;
     width: 100%;
     border-radius: 6px;

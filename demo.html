@@ -50,6 +50,7 @@
         data = JSON.parse(data)
 
         let storename = data.storename
+        var storeSlug = storename.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(/[^\w\s-]/g, '').replace(/\s+/g, '-')
         let address = data.address
         let phonenumber1 = data.phonenumber1
         let phonenumber2 = data.phonenumber2
@@ -787,7 +788,7 @@
                     $(".right-image").attr("src", dataURL);
                 }
 
-                zip.folder("captured_images").file("image" + index + ".jpg", dataURL.split(',')[1], { base64: true });
+                zip.folder("DKStore-"+storeSlug).file("image" + index + ".jpg", dataURL.split(',')[1], { base64: true });
             }).then(() => {
                 setTimeout(function () {
                     $(".preload").css({
@@ -803,7 +804,7 @@
             zip.generateAsync({ type: "blob" }).then(function (content) {
                 var a = document.createElement('a');
                 a.href = URL.createObjectURL(content);
-                a.download = 'captured_images.zip';
+                a.download = 'dkstore-' + storeSlug + '.zip';
                 a.click();
             });
         }

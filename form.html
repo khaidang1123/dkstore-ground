@@ -25,6 +25,24 @@
                 <input type="text" name="address" id="address">
             </div>
 
+            <div>
+                <label for="address">Chọn pano hiển thị</label>
+                <div class="list-pano">
+                    <div class="pano-item">
+                        <label for="pano_1">
+                            <img src="./images/pano/pano1.png">
+                        </label>
+                        <input type="radio" name="pano" id="pano_1" value="pano2" checked>
+                    </div>
+                    <div class="pano-item">
+                        <label for="pano_2">
+                            <img src="./images/pano/pano2.png">
+                        </label>
+                        <input type="radio" name="pano" id="pano_2" value="pano2">
+                    </div>
+                </div>
+            </div>
+
             <div class="">
                 <label for="phonenumber1">Số điện thoại (tối đa 2 số)</label>
                 <div class="flex-between">
@@ -48,8 +66,9 @@
             let address = document.querySelector("#address").value
             let phonenumber1 = document.querySelector("#phonenumber1").value
             let phonenumber2 = document.querySelector("#phonenumber2").value
+            let pano_selected = document.querySelector('input[name="pano"]:checked').value
 
-            let data = { storename, address, phonenumber1, phonenumber2 }
+            let data = { storename, address, phonenumber1, phonenumber2, pano_selected }
 
             window.localStorage.setItem("storeinfo", JSON.stringify(data))
             window.location.href = "/demo.html"

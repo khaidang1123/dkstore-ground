@@ -125,6 +125,14 @@
 
 @media (max-width: 576px) {
     .option-page .options > div {
-        width: 96%;
+        width: 100%;
+    }
+
+    .option-page .options {
+        flex-direction: column;
+    }
+
+    .option-page .options > div button:last-child {
+        padding: 10px 80px;
     }
 }

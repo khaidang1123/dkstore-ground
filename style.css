@@ -90,3 +90,22 @@
         padding: 10px;
     }
 }
+
+@media (max-width: 576px) {
+    .homepage .models {
+        flex-direction: column;
+        max-width: 80%;
+        margin: auto;
+    }
+
+    .homepage .models button {
+        margin-top: 20px;
+        height: 100px;
+    }
+
+    .homepage .models div button:last-child {
+        margin-top: 5px;
+        margin-bottom: 30px;
+        height: unset;
+    }
+}

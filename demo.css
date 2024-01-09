@@ -58,6 +58,7 @@
 
 .address {
     position: absolute;
+    width: 100%;
     color: #fff;
     letter-spacing: 0.1em;
 }

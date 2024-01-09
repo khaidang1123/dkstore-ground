@@ -808,12 +808,12 @@
             });
         }
 
-        // $(".render-image").click(function () {
-        //     let url = $(this).attr("src")
-        //     $(".overlay").addClass("active")
-        //     $(".preview-image").addClass("active")
-        //     $(".preview-image img").first().attr("src", url)
-        // })
+        $(".render-image").click(function () {
+            let url = $(this).attr("src")
+            $(".overlay").addClass("active")
+            $(".preview-image").addClass("active")
+            $(".preview-image img").first().attr("src", url)
+        })
 
         $(document).on("click", ".overlay", function () {
             $(".overlay").removeClass("active")
